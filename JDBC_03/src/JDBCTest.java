@@ -1,3 +1,4 @@
+
 import org.junit.Test;
 
 import java.io.IOException;
@@ -7,11 +8,99 @@ import java.util.Properties;
 
 /**
  * @author : mengmuzi
- * create at:  2019-06-11  17:10
- * @description: 任务2： JDBC_通过 DriverManager 获取数据库连接
+ * create at:  2019-06-12  02:16
+ * @description: 任务3： JDBC_通过Statement执行更新操作
  */
-public class JDBCTest {
+public class JDBCTest{
 
+    /**
+     * 通用的更新的方法：包括 INSERT、UPDATE、DELETE
+     * 版本 1.
+     *
+     */
+   @Test
+    public void update(String sql){
+        Connection connection = null;
+        Statement statement = null;
+        try{
+            connection = getConnection2();
+            statement = connection.createStatement();
+            statement.executeUpdate(sql);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            if(statement != null){
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+
+            }
+            if(connection != null){
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }
+
+
+    }
+    /**
+     * 通过JDBC 向指定的数据库插入一条数据
+     * 1. Statement: 用于执行SQL 语句的对象
+     * 1) 通过Connection 的 createStatement()来获取
+     * 2）通过executeUpdate(sql) 可以执行SQL语句。
+     * 3) 传入的 SQL 可以是 INSERT、UPDATE、DELETE，但不能是 SELECT
+     *
+     * 2. Connection、Statement 都是应用程序和数据库服务器的连接资源，使用后一定要关闭
+     *    需要在 finally 中关闭 Connection 和 Statement 对象
+     *
+     * 3. 关闭的顺序是：先关闭后获取的，即先关闭 Statement 后关闭 Connection
+     */
+
+    @Test
+    public void testStatement() throws Exception {
+        //1.获取数据库连接
+        Connection conn = null;
+        Statement statement = null;
+        try {
+            conn = getConnection2();
+
+            //3.准备插入的SQL语句
+//          String sql = "INSERT INTO admin VALUES('3','cuihua','8866');";
+//          String sql = "DELETE FROM admin WHERE id ='3'";
+            String sql = "UPDATE admin SET username='xiaohu' WHERE id ='3'";
+
+            //4.执行插入
+            //1）获取操作SQL语句的Statement对象，通过调用Connection的createStatement（）方法来获取。
+            statement = conn.createStatement();
+
+            //2）调用Statement对象的executeUpdate（sql）执行SQL语句进行插入
+            statement.executeUpdate(sql);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            //5）关闭Statement对象
+            try {
+                if(statement != null){
+                    statement.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }finally {
+                //2.关闭数据库连接
+                if(conn != null){
+                    conn.close();
+                }
+            }
+
+        }
+    }
 
     /**
      * DriverManager 是驱动类的管理类
@@ -54,7 +143,7 @@ public class JDBCTest {
 
     }
 
-    @Test
+    /*@Test
     public void testDriverManager() throws SQLException, IOException, ClassNotFoundException {
         // 1.准备连接数据库的4个字符串。
         //驱动的全类名
@@ -81,7 +170,7 @@ public class JDBCTest {
 
 
 
-    /**
+    *//**
      * Driver是一个接口：数据库厂商必须提供实现的接口，从中获取数据库连接。
      * 缺点：是和mysql耦合太高，换一个数据库则不行
      *
@@ -91,7 +180,7 @@ public class JDBCTest {
      *  3）把mysql-connector-java-5.1.39-bin.jar 复制到新建的lib目录下
      *  4）add to buildpath 加入到类路径下
      *
-     */
+     *//*
     @Test
     public void test() throws SQLException {
         //1.创建一个Driver实现类的对象
@@ -112,12 +201,12 @@ public class JDBCTest {
 
     }
 
-    /**
+    *//**
      * 编写一个通用的方法，在不修改程序的情况下，可以获取任何数据库连接，
      * 解决方案：把数据库的驱动Driver实现类的全类名、url、us、password放入一个配置文件中，
      *  通过修改数据库配置文件来实现具体的数据库的接解耦
      *
-     */
+     *//*
     public Connection getConnection() throws Exception{
         String driverClass = null;
         String jdbcUrl = null;
@@ -152,7 +241,6 @@ public class JDBCTest {
     @Test
     public void testGetConnection() throws Exception{
         System.out.println(this.getConnection());
-    }
-
+    }*/
 
 }

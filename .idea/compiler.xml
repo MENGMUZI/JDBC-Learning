@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="JDBC_01" />
         <module name="JDBC_02" />
+        <module name="JDBC_03" />
       </profile>
     </annotationProcessing>
   </component>
