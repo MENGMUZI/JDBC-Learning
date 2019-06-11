@@ -14,7 +14,7 @@ import java.util.Properties;
 public class JDBCTest {
     /**
      * Driver是一个接口：数据库厂商必须提供实现的接口，从中获取数据库连接。
-     * 缺点：是和mysql耦合
+     * 缺点：是和mysql耦合太高，换一个数据库则不行
      *
      * 1.加入Mysql数据驱动
      *  1）解压mysql压缩包
