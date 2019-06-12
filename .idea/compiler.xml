@@ -10,6 +10,8 @@
         <module name="JDBC_02" />
         <module name="JDBC_03" />
         <module name="JDBC_04" />
+        <module name="JDBC_05" />
+        <module name="JDBC_06" />
       </profile>
     </annotationProcessing>
   </component>
