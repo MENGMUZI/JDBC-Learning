@@ -7,10 +7,10 @@ import java.util.Properties;
 
 /**
  * @author : mengmuzi
- * create at:  2019-06-12  14:47
- * @description:  任务4： JDBC_通过ResultSet执行查询操作
+ * create at:  2019-06-12  20:04
+ * @description:
  */
-public class JDBCTools{
+public class JDBCTools {
     /**
      * 关闭  Statement 和 Connection
      * @param statement
@@ -66,4 +66,5 @@ public class JDBCTools{
         // 3. 通过 DriverManager 的 getConnection() 方法获取数据库连接。
         return DriverManager.getConnection(jdbcUrl, user, password);
     }
+
 }

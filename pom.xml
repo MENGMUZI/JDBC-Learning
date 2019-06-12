@@ -15,6 +15,8 @@
         <module>JDBC_04</module>
         <module>JDBC_05</module>
         <module>JDBC_06</module>
+        <module>JDBC_07</module>
+        <module>JDBC_08</module>
     </modules>
 
 

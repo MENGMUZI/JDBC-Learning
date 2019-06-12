@@ -1,5 +1,3 @@
-
-
 import org.junit.Test;
 
 import java.io.IOException;
@@ -12,11 +10,10 @@ import java.util.Properties;
 
 /**
  * @author : mengmuzi
- * create at:  2019-06-12  14:48
+ * create at:  2019-06-12  20:02
  * @description:  任务4： JDBC_通过ResultSet执行查询操作
  */
 public class JDBCTest04 {
-
     /**
      * ResultSet :结果集，封装了 JDBC 进行查询的结果。
      * 1. 调用 Statement 的 excuteQuery(sql) 可以得到结果集。
@@ -41,7 +38,8 @@ public class JDBCTest04 {
             //2.获取Statement
             statement=connection.createStatement();
             //3.准备SQL
-            String sql="SELECT * FROM admin WHERE id = 1";
+            String sql="SELECT id,username,password"+
+                    " FROM admin ";
             //4.执行查询，得到 ResultSet
             resultSet=statement.executeQuery(sql);
             //5.处理 ResultSet
@@ -54,7 +52,6 @@ public class JDBCTest04 {
                 System.out.println(id);
                 System.out.println(username);
                 System.out.println(password);
-
             }
             //6.关闭数据库资源
         } catch (Exception e) {
@@ -257,5 +254,4 @@ public class JDBCTest04 {
 //	public void testGetConnection() throws Exception {
 //		System.out.println(getConnection());
 //	}
-
 }
