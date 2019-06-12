@@ -6,10 +6,32 @@ import java.util.Properties;
 
 /**
  * @author : mengmuzi
- * create at:  2019-06-12  02:53
- * @description: JDBC的工具类
+ * create at:  2019-06-12  13:29
+ * @description:
  */
 public class JDBCTools {
+
+    /**
+     * 关闭  Statement 和 Connection
+     * @param statement
+     * @param connection
+     */
+    public static void release(Statement statement, Connection connection) {
+        if (statement != null) {
+            try {
+                statement.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        if (connection != null) {
+            try {
+                connection.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
     /**
      * 1.获取连接的方法。 通过读取配置文件从数据库服务器获取一个数据库连接
@@ -37,27 +59,4 @@ public class JDBCTools {
         // 3. 通过 DriverManager 的 getConnection() 方法获取数据库连接。
         return DriverManager.getConnection(jdbcUrl, user, password);
     }
-
-    /**
-     * 关闭  Statement 和 Connection
-     * @param statement
-     * @param connection
-     */
-    public static void release(Statement statement, Connection connection) {
-        if (statement != null) {
-            try {
-                statement.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        if (connection != null) {
-            try {
-                connection.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
 }

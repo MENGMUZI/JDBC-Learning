@@ -22,6 +22,9 @@
       </profile-state>
     </entry>
   </component>
+  <component name="ProjectPlainTextFileTypeManager">
+    <file url="file://$PROJECT_DIR$/JDBC_03/JDBC_03.iml" />
+  </component>
   <component name="ProjectResources">
     <resource url="http://www.mybatis.org/dtd/mybatis-generator-config_1_0.dtd" location="$USER_HOME$/Downloads/mybatis-generator-config_1_0.dtd" />
   </component>

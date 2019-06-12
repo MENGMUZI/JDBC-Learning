@@ -11,7 +11,7 @@ import java.util.Properties;
  * create at:  2019-06-11  17:10
  * @description: 任务1： JDBC_通过Driver接口获取数据库连接
  */
-public class JDBCTest {
+public class JDBCTest01 {
     /**
      * Driver是一个接口：数据库厂商必须提供实现的接口，从中获取数据库连接。
      * 缺点：是和mysql耦合太高，换一个数据库则不行
