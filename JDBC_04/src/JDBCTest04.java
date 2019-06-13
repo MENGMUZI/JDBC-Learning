@@ -123,9 +123,12 @@ public class JDBCTest04 {
             //2）.调用statement 对象的 executeUpdate（sql） 执行 SQL 语句插入
             statement.executeUpdate(sql);
         } catch (Exception e) {
+
             // TODO Auto-generated catch block
             e.printStackTrace();
+
         }finally {
+
             JDBCTools.release(null,statement, connection);
         }
 
