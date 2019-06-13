@@ -10,7 +10,7 @@ import java.util.Properties;
 /**
  * @author : mengmuzi
  * create at:  2019-06-12  13:28
- * @description:
+ * @description: 任务3： JDBC_通过Statement执行更新操作
  */
 public class JDBCTest03 {
     /**
