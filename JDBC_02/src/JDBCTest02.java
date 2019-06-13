@@ -20,6 +20,7 @@ public class JDBCTest02 {
      */
     @Test
     public void testGetConnection2() throws SQLException, IOException, ClassNotFoundException {
+
         System.out.println(this.getConnection2());
     }
 
@@ -150,6 +151,7 @@ public class JDBCTest02 {
     }
     @Test
     public void testGetConnection() throws Exception{
+
         System.out.println(this.getConnection());
     }
 
