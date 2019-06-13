@@ -8,7 +8,7 @@ import java.util.Properties;
 /**
  * @author : mengmuzi
  * create at:  2019-06-12  17:17
- * @description: 任务7： JDBC_PreparedStatement
+ * @description: 任务5: 复习
  */
 public class ReviewTest {
     /**
