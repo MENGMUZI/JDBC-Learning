@@ -107,7 +107,9 @@ public class JDBCTest07 {
             }
 
         } catch (Exception e) {
+
             e.printStackTrace();
+
         } finally {
             JDBCTools.releaseDB(resultSet, statement, connection);
         }
