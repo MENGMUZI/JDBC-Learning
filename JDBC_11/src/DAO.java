@@ -1,3 +1,5 @@
+import org.apache.commons.beanutils.BeanUtils;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -77,7 +79,9 @@ public class DAO {
                     String propertyName = entry.getKey();
                     Object value = entry.getValue();
 
-                    ReflectionUtils.setFieldValue(entity,propertyName,value);
+                    //ReflectionUtils.setFieldValue(entity,propertyName,value);
+                    //采用BeanUtils
+                    BeanUtils.setProperty(entity,propertyName,value);
 
                 }
             }
